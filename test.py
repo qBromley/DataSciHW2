@@ -10,16 +10,9 @@ y_test = pd.read_csv('p1/y2.csv').values
 
 
 # Calculate the pseudo-inverse solution
-# beta = (X^T X)^(-1) X^T y
 beta = np.linalg.inv(x.T @ x) @ x.T @ y
-print("Set of coefficients:", beta.ravel())  # Flatten for a cleaner print format
+print("Set of coefficients:", beta.flatten())  
 
-# Predict on training data to calculate R^2 on training set
-y_pred_train = x @ beta
-rss_train = np.sum((y - y_pred_train) ** 2)
-tss_train = np.sum((y - np.mean(y)) ** 2)
-r2_train = 1 - rss_train / tss_train
-print("R^2 on training data:", r2_train)
 
 # Predict on test data
 y_pred_test = x_test @ beta

@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import Ridge
-
+def ridge()
 # Load data from CSV files
 x = pd.read_csv('p1/x1.csv').values  # Ensure this is a NumPy array
 y = pd.read_csv('p1/y1.csv').values
@@ -11,22 +11,15 @@ y_test = pd.read_csv('p1/y2.csv').values
 
 
 # Define the regularization strength (alpha)
-alpha = 1.0  # Adjust alpha as needed (higher = more regularization)
+alpha = 1.0  
 
 # Perform Ridge Regression
-ridge_model = Ridge(alpha=alpha, fit_intercept=False)  # Set fit_intercept=False since we added the intercept manually
+ridge_model = Ridge(alpha=alpha, fit_intercept=False)  
 ridge_model.fit(x, y)
 
 # Get the Ridge coefficients
-beta = ridge_model.coef_.ravel()  # Flatten for easier display
-print("Set of coefficients:", beta)
-
-# Predict on training data to calculate R^2 on training set
-y_pred_train = ridge_model.predict(x)
-rss_train = np.sum((y - y_pred_train) ** 2)
-tss_train = np.sum((y - np.mean(y)) ** 2)
-r2_train = 1 - rss_train / tss_train
-print("R^2 on training data:", r2_train)
+beta = ridge_model.coef_  
+print("Set of coefficients:", beta.flatten())
 
 # Predict on test data
 y_pred_test = ridge_model.predict(x_test)

@@ -3,9 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Parameters
-n = 100     # Number of examples
+n = 2000     # Number of examples
 d = 5       # Number of predictors
-dd = 20     # Number of noisy channels
+dd = 400     # Number of noisy channels
 std = 0.2   # Standard deviation of additive noise
 
 # Generate predictors
